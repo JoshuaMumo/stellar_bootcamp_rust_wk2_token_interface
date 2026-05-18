@@ -22,6 +22,37 @@ fn setup<'a>() -> SetUpResult<'a>{
 }
 
 #[test]
+fn test_name() {
+    let setup_result = setup();
+
+    let name = setup_result.client.name();
+    let token_name = String::from_str(&setup_result.env, "SibToken");
+    assert_eq!(name, token_name);
+}
+
+#[test]
+fn test_symbol() {
+    let setup_result = setup();
+
+    let name = setup_result.client.symbol();
+    let token_name = String::from_str(&setup_result.env, "SIB");
+
+    let not_token_name = String::from_str(&setup_result.env, "Sib");
+    assert_eq!(name, token_name);
+    assert_ne!(name, not_token_name);
+}
+
+#[test]
+fn test_decimal() {
+    let setup_result = setup();
+
+    let decimal = setup_result.client.decimals();
+    let token_decimal = 18;
+
+    assert_eq!(decimal, token_decimal);
+}
+
+#[test]
 fn test_balance() {
 
     let setup_result = setup();

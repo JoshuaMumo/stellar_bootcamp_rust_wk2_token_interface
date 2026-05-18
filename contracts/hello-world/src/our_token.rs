@@ -167,13 +167,13 @@ impl SibToken {
         Ok(())
     }
 
-    fn name(env: Env) -> String {
+    pub fn name(env: Env) -> String {
         String::from_str(&env, "SibToken")
     }
-    fn symbol(env: Env) -> String{
+    pub fn symbol(env: Env) -> String{
         String::from_str(&env, "SIB")
     }
-    fn decimals(env: Env) -> u32 {
+    pub fn decimals(env: Env) -> u32 {
         18
     }
 
